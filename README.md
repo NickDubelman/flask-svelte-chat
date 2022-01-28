@@ -6,6 +6,7 @@ A simple real-time chat app built with [Flask](https://flask.palletsprojects.com
 
 ```sh
 # From root of this repo...
+python3 -m venv ./venv # create virtual environment
 source venv/bin/activate  # "activate" virtual environment
 pip install -r requirements.txt # install python deps
 flask run # run backend server (watches files for changes)
