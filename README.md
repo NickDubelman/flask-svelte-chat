@@ -15,3 +15,7 @@ cd client # our frontend code is in the client directory
 yarn # install frontend deps
 yarn dev # run frontend build task (watches files for changes)
 ```
+
+## Usage
+
+Once you have the app running, you should be able to access it at [localhost:5000/](http://localhost:5000/). Try opening it in two separate browser tabs and sending some messages. You should be able to switch between tabs and see the messages appear, without any need for a page refresh.
