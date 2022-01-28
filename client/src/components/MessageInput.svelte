@@ -6,6 +6,8 @@
 
   let message = ''
 
+  $: canSubmit = user.trim() !== '' && message.trim() !== ''
+
   function onSubmit() {
     socket.emit('message', { user, message }) // send message to server
     message = '' // clear message
@@ -15,7 +17,7 @@
 <form on:submit|preventDefault={onSubmit}>
   <input type="text" bind:value={message} placeholder="enter a message" />
 
-  <button type="submit" disabled={message.trim() === ''}>Send</button>
+  <button type="submit" disabled={!canSubmit}>Send</button>
 </form>
 
 <style>
