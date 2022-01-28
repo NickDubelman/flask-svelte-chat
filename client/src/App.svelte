@@ -1,5 +1,6 @@
 <script lang="ts">
   import { io } from 'socket.io-client'
+  import MessageInput from './components/MessageInput.svelte'
 
   const socket = io()
   socket.on('connect', function () {
@@ -12,7 +13,7 @@
 </script>
 
 <main>
-  <h1>Hello Borat!</h1>
+  <MessageInput />
 </main>
 
 <style>
@@ -21,12 +22,5 @@
     padding: 1em;
     max-width: none;
     margin: 0 auto;
-  }
-
-  h1 {
-    color: #2aa9c0;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 200;
   }
 </style>
