@@ -2,7 +2,7 @@
   import type { Socket } from 'socket.io-client'
 
   export let socket: Socket
-  export let user: string = ''
+  export let user = ''
 
   let message = ''
 
