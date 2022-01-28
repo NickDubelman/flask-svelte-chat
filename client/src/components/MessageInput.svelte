@@ -1,8 +1,13 @@
 <script lang="ts">
+  import type { Socket } from 'socket.io-client'
+
+  export let socket: Socket
+  export let user: string = ''
+
   let message = ''
 
   function onSubmit() {
-    alert('message sent!') // FIXME: send message to server
+    socket.emit('message', { user, message }) // send message to server
     message = '' // clear message
   }
 </script>
@@ -21,6 +26,7 @@
 
   input {
     width: 420px;
+    outline: none;
   }
 
   button {

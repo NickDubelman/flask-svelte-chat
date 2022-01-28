@@ -2,6 +2,8 @@ from flask import send_from_directory
 
 from app import app, socketio
 
+messageID = 1
+
 
 @app.route("/")
 def index():
@@ -21,5 +23,10 @@ def hello():
 
 @socketio.on('message')
 def handle_message(data):
-    socketio.emit("message", "pong")
+    global messageID
+
+    data["id"] = messageID
+    messageID += 1
+
+    socketio.emit("message", data)
     print('received message: ' + data)

@@ -1,26 +1,26 @@
 <script lang="ts">
   import { io } from 'socket.io-client'
+
   import MessageInput from './components/MessageInput.svelte'
+  import MessageList from './components/MessageList.svelte'
+  import UserInput from './components/UserInput.svelte'
 
   const socket = io()
-  socket.on('connect', function () {
-    socket.emit('message', 'ping')
-  })
 
-  socket.on('message', function (data) {
-    console.log(data)
-  })
+  let user = ''
 </script>
 
 <main>
-  <MessageInput />
+  <UserInput bind:value={user} />
+  <MessageInput {socket} {user} />
+  <MessageList {socket} />
 </main>
 
 <style>
   main {
     text-align: center;
     padding: 1em;
-    max-width: none;
+    width: 420px;
     margin: 0 auto;
   }
 </style>
