@@ -1,5 +1,6 @@
 from flask import send_from_directory
-from app import app
+
+from app import app, socketio
 
 
 @app.route("/")
@@ -16,3 +17,9 @@ def home(path):
 @app.route("/hello")
 def hello():
     return 'hello world'
+
+
+@socketio.on('message')
+def handle_message(data):
+    socketio.emit("message", "pong")
+    print('received message: ' + data)

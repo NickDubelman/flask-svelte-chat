@@ -1,3 +1,16 @@
+<script lang="ts">
+  import { io } from 'socket.io-client'
+
+  const socket = io()
+  socket.on('connect', function () {
+    socket.emit('message', 'ping')
+  })
+
+  socket.on('message', function (data) {
+    console.log(data)
+  })
+</script>
+
 <main>
   <h1>Hello Borat!</h1>
 </main>

@@ -7,5 +7,5 @@
 flask run
 
 # from another terminal...
-cd client && yarn dev # or npm instead of yarn if you prefer
+cd client && yarn dev # or npm instead of yarn, if you prefer
 ```
